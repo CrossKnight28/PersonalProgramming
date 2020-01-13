@@ -79,7 +79,7 @@ public class RockPaperScissors {
                     }
                 }
                 else if (userPlay.equals("Rock")) {
-                    System.out.print("Your opponet chose Paper!! ");  
+                    System.out.print("Your opponet chose Paper! ");  
                     systemWins++;
 
                     if (!(systemWins == 2 || playerWins == 2)) {
