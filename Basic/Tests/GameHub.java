@@ -18,7 +18,8 @@ public class GameHub {
 
         Scanner keyboard = new Scanner(System.in);
         Random rndm = new Random();
-        nameGenerator();
+        NameGenerator();
+
 
         String selectYourGame;
         int unableToType;
@@ -66,7 +67,7 @@ public class GameHub {
         // Game Finder
         if (selectYourGame.equals("Rock-Paper-Scissors")) {
           bar();
-          RockPaperScissors();
+          //RockPaperScissors();
         }
         else if (selectYourGame.equals("Guessing-Game")) {
           bar();
@@ -91,33 +92,11 @@ public class GameHub {
         System.out.println("");
     }
 
-// --------------------------------------------------------------------------------------------------- DELAY 1
+// --------------------------------------------------------------------------------------------------- DELAY
 
-    public static void delay1() {
-        try {
-            Thread.sleep(1000);
-        }
-        catch (Exception e) {
-            System.out.print("Error " + e);
-        }
-    }
-
-// --------------------------------------------------------------------------------------------------- DELAY 0.5
-
-    public static void delay05() {
-        try {
-            Thread.sleep(500);
-        }
-        catch (Exception e) {
-            System.out.print("Error " + e);
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------------- DELAY 2
-
-    public static void delay2() {
+    public static void delay(int delaySelect) {
       try {
-          Thread.sleep(2000);
+          Thread.sleep(delaySelect);
       }
       catch (Exception e) {
           System.out.print("Error " + e);
@@ -125,11 +104,12 @@ public class GameHub {
   }
 
 // --------------------------------------------------------------------------------------------------- ROCK PAPER SCISSORS
-
+/*
     public static void RockPaperScissors() {
-        
+      System.out.println("Welcome to Tic-Tac-Toe!... Oh wait this is Rock-Paper-Scissors... Uhh well welcome anyways!");
+      System.out.println("You will be facing against me, " + firstNameNG);
     }
-
+*/
 // --------------------------------------------------------------------------------------------------- LOTTERY WINNER
 
     public static void LotteryWinner() {
@@ -145,27 +125,27 @@ public class GameHub {
 
       if (userAnswerLW.equals("N")) {
         System.out.println("Well you don't have much of a choice now, so we will bein anyways.");
-        delay2();
+        delay(2000);
         System.out.println("3...");
-        delay1();
+        delay(1000);
         System.out.println("2...");
-        delay1();
+        delay(1000);
         System.out.println("1...");
-        delay1();
+        delay(1000);
         System.out.println("BEGIN!");
-        delay05();
+        delay(500);
       }
       else if (userAnswerLW.equals("Y")) {
         System.out.println("Hopefully this will open your eyes to the true odds of the lottery. Good luck.");
-        delay2();
+        delay(2000);
         System.out.println("3...");
-        delay1();
+        delay(1000);
         System.out.println("2...");
-        delay1();
+        delay(1000);
         System.out.println("1...");
-        delay1();
+        delay(1000);
         System.out.println("BEGIN!");
-        delay05();
+        delay(500);
       }
 
       do {
@@ -220,91 +200,91 @@ public class GameHub {
 
 // --------------------------------------------------------------------------------------------------- NAME GENERATOR
 
-    public static void nameGenerator() {
+    public static void NameGenerator() {
         Random r = new Random();
 
-        int genderSelect, firstChoice, lastChoice;
-        String firstName, lastName, finalName;
+        int genderSelectNG, firstChoiceNG, lastChoiceNG;
+        String firstNameNG, lastNameNG, finalNameNG;
     
-        lastName = "";
-        firstName = "";
+        lastNameNG = "";
+        firstNameNG = "";
     
-        genderSelect = 1 + r.nextInt(2);
-        firstChoice = 1 + r.nextInt(10);
-        lastChoice = 1 + r.nextInt(20);
-    
-    
+        genderSelectNG = 1 + r.nextInt(2);
+        firstChoiceNG = 1 + r.nextInt(10);
+        lastChoiceNG = 1 + r.nextInt(20);
     
     
-        if (genderSelect == 1) {
+    
+    
+        if (genderSelectNG == 1) {
           // MALE
     
-          if (firstChoice == 1) {
-            firstName = "Mason";
+          if (firstChoiceNG == 1) {
+            firstNameNG = "Mason";
           }
-          else if (firstChoice == 2) {
-            firstName = "Liam";
+          else if (firstChoiceNG == 2) {
+            firstNameNG = "Liam";
           }
-          else if (firstChoice == 3) {
-            firstName = "Noah";
+          else if (firstChoiceNG == 3) {
+            firstNameNG = "Noah";
           }
-          else if (firstChoice == 4) {
-            firstName = "Logan";
+          else if (firstChoiceNG == 4) {
+            firstNameNG = "Logan";
           }
-          else if (firstChoice == 5) {
-            firstName = "James";
+          else if (firstChoiceNG == 5) {
+            firstNameNG = "James";
           }
-          else if (firstChoice == 6) {
-            firstName = "Oliver";
+          else if (firstChoiceNG == 6) {
+            firstNameNG = "Oliver";
           }
-          else if (firstChoice == 7) {
-            firstName = "Elijah";
+          else if (firstChoiceNG == 7) {
+            firstNameNG = "Elijah";
           }
-          else if (firstChoice == 8) {
-            firstName = "Benjamin";
+          else if (firstChoiceNG == 8) {
+            firstNameNG = "Benjamin";
           }
-          else if (firstChoice == 9) {
-            firstName = "William";
+          else if (firstChoiceNG == 9) {
+            firstNameNG = "William";
           }
-          else if (firstChoice == 10) {
-            firstName = "Lucas";
+          else if (firstChoiceNG == 10) {
+            firstNameNG = "Lucas";
           }
           
         }
     
     
-        else if (genderSelect == 2) {
+        else if (genderSelectNG == 2) {
           // FEMALE
           
-          if (firstChoice == 1) {
-            firstName = "Emma";
+          if (firstChoiceNG == 1) {
+            firstNameNG = "Emma";
           }
-          else if (firstChoice == 2) {
-            firstName = "Olivia";
+          else if (firstChoiceNG == 2) {
+            firstNameNG = "Olivia";
           }
-          else if (firstChoice == 3) {
-            firstName = "Ava";
+          else if (firstChoiceNG == 3) {
+            firstNameNG = "Ava";
           }
-          else if (firstChoice == 4) {
-            firstName = "Isabella";
+          else if (firstChoiceNG == 4) {
+            firstNameNG = "Isabella";
           }
-          else if (firstChoice == 5) {
-            firstName = "Sophia";
+          else if (firstChoiceNG == 5) {
+            firstNameNG = "Sophia";
           }
-          else if (firstChoice == 6) {
-            firstName = "Charlotte";
+          else if (firstChoiceNG == 6) {
+            firstNameNG = "Charlotte";
           }
-          else if (firstChoice == 7) {
-            firstName = "Mia";
+          else if (firstChoiceNG == 7) {
+            firstNameNG = "Mia";
           }
-          else if (firstChoice == 8) {
-            firstName = "Amelia";
+          else if (firstChoiceNG == 8) {
+            firstNameNG = "Amelia";
           }
-          else if (firstChoice == 9) {
-            firstName = "Harper";
+          else if (firstChoiceNG == 9) {
+            firstNameNG = "Harper";
           }
-          else if (firstChoice == 10) {
-            firstName = "Evelyn";
+          else if (firstChoiceNG == 10) {
+            firstNameNG = "Evelyn";
           }
     
         }
@@ -315,71 +295,71 @@ public class GameHub {
         }
     
     
-        if (lastChoice == 1) {
-            lastName = "Smith";
+        if (lastChoiceNG == 1) {
+            lastNameNG = "Smith";
           }
-        else if (lastChoice == 2) {
-            lastName = "Hall";
+        else if (lastChoiceNG == 2) {
+            lastNameNG = "Hall";
           }
-        else if (lastChoice == 3) {
-            lastName = "Stewart";
+        else if (lastChoiceNG == 3) {
+            lastNameNG = "Stewart";
           }
-        else if (lastChoice == 4) {
-            lastName = "Price";
+        else if (lastChoiceNG == 4) {
+            lastNameNG = "Price";
           }
-        else if (lastChoice == 5) {
-            lastName = "Johnson";
+        else if (lastChoiceNG == 5) {
+            lastNameNG = "Johnson";
           }
-        else if (lastChoice == 6) {
-            lastName = "Allen";
+        else if (lastChoiceNG == 6) {
+            lastNameNG = "Allen";
           }
-        else if (lastChoice == 7) {
-            lastName = "Sanchez";
+        else if (lastChoiceNG == 7) {
+            lastNameNG = "Sanchez";
           }
-        else if (lastChoice == 8) {
-            lastName = "Bennett";
+        else if (lastChoiceNG == 8) {
+            lastNameNG = "Bennett";
           }
-        else if (lastChoice == 9) {
-            lastName = "Bell";
+        else if (lastChoiceNG == 9) {
+            lastNameNG = "Bell";
           }
-        else if (lastChoice == 10) {
-            lastName = "Taylor";
+        else if (lastChoiceNG == 10) {
+            lastNameNG = "Taylor";
           }
-        else if (lastChoice == 11) {
-            lastName = "Murphy";
+        else if (lastChoiceNG == 11) {
+            lastNameNG = "Murphy";
           }
-        else if (lastChoice == 12) {
-            lastName = "Jenkins";
+        else if (lastChoiceNG == 12) {
+            lastNameNG = "Jenkins";
           }
-        else if (lastChoice == 13) {
-            lastName = "Jackson ";
+        else if (lastChoiceNG == 13) {
+            lastNameNG = "Jackson ";
           }
-        else if (lastChoice == 14) {
-            lastName = "Nelson";
+        else if (lastChoiceNG == 14) {
+            lastNameNG = "Nelson";
           }
-        else if (lastChoice == 15) {
-            lastName = "Cox";
+        else if (lastChoiceNG == 15) {
+            lastNameNG = "Cox";
           }
-        else if (lastChoice == 16) {
-            lastName = "Washington";
+        else if (lastChoiceNG == 16) {
+            lastNameNG = "Washington";
           }
-        else if (lastChoice == 17) {
-            lastName = "Martin";
+        else if (lastChoiceNG == 17) {
+            lastNameNG = "Martin";
           }
-        else if (lastChoice == 18) {
-            lastName = "Butler";
+        else if (lastChoiceNG == 18) {
+            lastNameNG = "Butler";
           }
-        else if (lastChoice == 19) {
-            lastName = "Turner";
+        else if (lastChoiceNG == 19) {
+            lastNameNG = "Turner";
           }
-        else if (lastChoice == 20) {
-            lastName = "Roberts";
+        else if (lastChoiceNG == 20) {
+            lastNameNG = "Roberts";
           }
         else {
           System.out.println("NAME GENERATOR ERROR  - RANDOM VALUE LAST OFF");
         }
     
     
-        finalName = (firstName + " " + lastName);
+        finalNameNG = (firstNameNG + " " + lastNameNG);
     }
 }
