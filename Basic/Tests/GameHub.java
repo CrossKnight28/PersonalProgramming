@@ -1,14 +1,15 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class RockPaperScissors2 {
+public class GameHub {
+  static Scanner keyboard = new Scanner(System.in);
+  static Random rndm = new Random();
     public static void main(String[] args) {
         /*
 
         Planned Features:
         Select the amount of rounds.
-        Use Thread.sleep to make the code feel a little more alive instead of going at insane speeds.
-        Maybe do more than rock paper scissors, possible make this a multiple game code containing connect four, lottery winner and others.
+        Use Thread.sleep to make the code feel a little more alive instead of printing/activating instantly.
         Organize the code better than before.
         Use more functions.
         Make it easier to read with stuff like | and ----
@@ -26,7 +27,7 @@ public class RockPaperScissors2 {
 
 
         do {
-
+            // Making fun of user for not being able to select a game.
             if (unableToType == 5) {
                 empty();
                 System.out.println("Do you even know how to type/spell?");
@@ -41,46 +42,56 @@ public class RockPaperScissors2 {
                 empty();
                 System.out.println("And I used to think second-hand embarrasment was fake....");
             }
-
-
             unableToType++;
 
             
+            // Intro and game selection
             bar();
             empty();
-            System.out.println("Please select one of the following games to play: Rock-Paper-Scissors");
+            System.out.println("Please select one of the following games to play: Rock-Paper-Scissors, Guessing-Game, Lottery-Winner, ");
             System.out.print("> ");
             selectYourGame = keyboard.nextLine();
             empty();
 
-
-            if (!(selectYourGame.equals("Rock-Paper-Scissors"))) {
+            // Error Message
+            if (!(selectYourGame.equals("Rock-Paper-Scissors") || selectYourGame.equals("Guessing-Game") || selectYourGame.equals("Lottery-Winner"))) {
                 System.out.println("Error: Game not found. Please input one of the games that you would like to play.");
             }
 
 
-        } while (!(selectYourGame.equals("Rock-Paper-Scissors")));
+            // Loop cancel
+        } while (!(selectYourGame.equals("Rock-Paper-Scissors") || selectYourGame.equals("Guessing-Game") || selectYourGame.equals("Lottery-Winner")));
 
-
+        
+        // Game Finder
         if (selectYourGame.equals("Rock-Paper-Scissors")) {
-            RockPaperScissors();
+          bar();
+          RockPaperScissors();
+        }
+        else if (selectYourGame.equals("Guessing-Game")) {
+          bar();
+          GuessingGame();
+        }
+        else if (selectYourGame.equals("Lottery-Winner")) {
+          bar();
+          LotteryWinner();
         }
 
     }
 
-// ---------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------- BAR
 
     public static void bar() {
         System.out.println("- - - - - - - - - - - -");
     }
 
-// ---------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------- EMPTY
 
     public static void empty() {
         System.out.println("");
     }
 
-// ---------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------- DELAY 1
 
     public static void delay1() {
         try {
@@ -91,7 +102,7 @@ public class RockPaperScissors2 {
         }
     }
 
-// ---------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------- DELAY 0.5
 
     public static void delay05() {
         try {
@@ -102,13 +113,112 @@ public class RockPaperScissors2 {
         }
     }
 
-// ---------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------- DELAY 2
+
+    public static void delay2() {
+      try {
+          Thread.sleep(2000);
+      }
+      catch (Exception e) {
+          System.out.print("Error " + e);
+      }
+  }
+
+// --------------------------------------------------------------------------------------------------- ROCK PAPER SCISSORS
 
     public static void RockPaperScissors() {
         
     }
 
-// ---------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------- LOTTERY WINNER
+
+    public static void LotteryWinner() {
+      String userAnswerLW;
+      int lotteryWinnerLW = 3;
+      int xLW = 0;
+      int yLW = 0;
+
+      System.out.println("This is not much of a game but can be a good lesson. This will print numbers that each simulate 1 lottery ticket trying to hit a winning number, this can take upwards of 20 minutes. Are you ready to begin? Y or N");
+      System.out.print("> ");
+      userAnswerLW = keyboard.next();
+      empty();
+
+      if (userAnswerLW.equals("N")) {
+        System.out.println("Well you don't have much of a choice now, so we will bein anyways.");
+        delay2();
+        System.out.println("3...");
+        delay1();
+        System.out.println("2...");
+        delay1();
+        System.out.println("1...");
+        delay1();
+        System.out.println("BEGIN!");
+        delay05();
+      }
+      else if (userAnswerLW.equals("Y")) {
+        System.out.println("Hopefully this will open your eyes to the true odds of the lottery. Good luck.");
+        delay2();
+        System.out.println("3...");
+        delay1();
+        System.out.println("2...");
+        delay1();
+        System.out.println("1...");
+        delay1();
+        System.out.println("BEGIN!");
+        delay05();
+      }
+
+      do {
+
+          yLW++;
+          xLW = 1 + rndm.nextInt(302200000);
+          System.out.println(xLW + " | " + yLW);
+
+      } while (xLW != lotteryWinnerLW);
+
+      System.out.println("Congrats, you won the lottery!");
+    }
+
+  // --------------------------------------------------------------------------------------------------- GUESSING GAME
+
+    public static void GuessingGame() {
+        int userNum1GG, userNum2GG, winningNumberGG, userGuessGG, attemptsGG;
+        attemptsGG = 4;
+
+
+        System.out.println("Hello, please say what numbers you would like for boundaries. Say the small one first.");
+        userNum1GG = keyboard.nextInt();
+        userNum2GG = keyboard.nextInt();
+
+
+        winningNumberGG = userNum1GG + rndm.nextInt(userNum2GG - userNum1GG);
+        System.out.println("Guess your number! Its between your values of " + userNum1GG + " and " + userNum2GG + ".");
+
+
+        do {
+            userGuessGG = keyboard.nextInt();
+
+            attemptsGG--;
+            
+            if (userGuessGG > winningNumberGG) {
+                System.out.println("You guessed too high! You only have " + attemptsGG + " attempt(s) remaining.");
+            }
+            else if (userGuessGG < winningNumberGG) {
+                System.out.println("You guessed too low! You only have " + attemptsGG + " attempt(s) remaining.");
+            }
+
+        } while (attemptsGG != 0 && userGuessGG != winningNumberGG);
+
+        if (userGuessGG == winningNumberGG) {
+            System.out.println("Congrats! You guessed the number!");
+        }
+        else if (userGuessGG != winningNumberGG) {
+            System.out.println("");
+            System.out.println("Aw, you didn't guess it. The number was " + winningNumberGG);
+        }
+    }
+
+// --------------------------------------------------------------------------------------------------- NAME GENERATOR
 
     public static void nameGenerator() {
         Random r = new Random();
